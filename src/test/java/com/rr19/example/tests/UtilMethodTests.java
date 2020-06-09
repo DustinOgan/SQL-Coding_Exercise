@@ -1,6 +1,5 @@
 package com.rr19.example.tests;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.testng.Assert.assertEquals;
 
 import java.math.BigDecimal;
@@ -13,10 +12,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.naming.spi.DirStateFactory.Result;
 import javax.sql.DataSource;
 
-import com.rr19.example.application.InvoicePriceCalculator;
 import com.rr19.example.tests.dao.CustomerDAO;
 import com.rr19.example.tests.dao.InvoiceDAO;
 import com.rr19.example.tests.dao.ProductDAO;
@@ -27,8 +24,6 @@ import com.rr19.example.tests.dataTypes.Product;
 import com.rr19.example.tests.utils.InvoiceUtils;
 
 import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.DataProvider;
-//import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class UtilMethodTests {
