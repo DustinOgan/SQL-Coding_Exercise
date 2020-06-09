@@ -27,7 +27,6 @@ public class InvoiceDAOTest extends BaseDbTest {
             invoiceDAO.insert(con, 50, 49, new BigDecimal("100.18"));
             final List<Invoice> invoices = invoiceDAO.selectByInvoiceId(con, 50);
             con.close();
-            System.out.println(invoices.size());
             assertEquals(invoices.size(), 1);
             assertEquals(invoices.get(0).getId().intValue(), 50);
     };
@@ -38,7 +37,6 @@ public class InvoiceDAOTest extends BaseDbTest {
         try {
             final InvoiceDAO invoiceDAO = new InvoiceDAO();
             final Integer actualRecord = invoiceDAO.getMaxInvoiceNumber();
-            System.out.println(actualRecord);
             assertEquals(actualRecord, expectedRecord);
         } catch (final SQLException e) {
             e.printStackTrace();
@@ -50,7 +48,6 @@ public class InvoiceDAOTest extends BaseDbTest {
         final InvoiceDAO invoiceDAO = new InvoiceDAO();
             invoiceDAO.insert(50, 49, new BigDecimal("100.18"));
             final List<Invoice> invoices = invoiceDAO.selectByInvoiceId(50);
-            System.out.println(invoices.size());
             assertEquals(invoices.size(), 1);
             assertEquals(invoices.get(0).getId().intValue(), 50);
             invoiceDAO.delete(50);

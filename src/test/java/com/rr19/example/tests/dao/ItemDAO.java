@@ -17,6 +17,16 @@ public class ItemDAO extends BaseDAO {
         super();
     }
     
+    /**
+     * 
+     * @param invoiceId
+     * @param itemNo
+     * @param productId
+     * @param quantity
+     * @param cost
+     * @return
+     * @throws SQLException
+     */
     public boolean insert(Integer invoiceId, Integer itemNo, Integer productId, Integer quantity, BigDecimal cost)
             throws SQLException {
         Connection con = ds.getConnection();
@@ -39,6 +49,12 @@ public class ItemDAO extends BaseDAO {
         return ps.execute();
     }
 
+    /**
+     * 
+     * @param invoiceId
+     * @return List of line item records for a given invoiceID
+     * @throws SQLException
+     */
     public List<Item> selectItemsByInvoiceId(Integer invoiceId) throws SQLException {
         Connection con = ds.getConnection();
         List<Item> selectedItems = selectItemsByInvoiceId(con, invoiceId);
@@ -46,7 +62,7 @@ public class ItemDAO extends BaseDAO {
         .close();
         return selectedItems;
     }
-
+    
     public List<Item> selectItemsByInvoiceId(Connection con, Integer invoiceId) throws SQLException {
         List<Item> selectedItems = new ArrayList<Item>();
         final String preparedString = String.join("\n",

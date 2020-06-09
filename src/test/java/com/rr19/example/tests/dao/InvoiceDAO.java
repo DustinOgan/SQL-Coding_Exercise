@@ -36,12 +36,27 @@ public class InvoiceDAO extends BaseDAO {
         ps.execute();
         
     }
+    
+    /**
+     * 
+     * @param invoiceId
+     * @return List of Invoices associated with the invoiceId
+     * @throws SQLException
+     */
     public List<Invoice>  selectByInvoiceId(Integer invoiceId) throws SQLException {
         Connection con = ds.getConnection();
         List<Invoice> invoices = selectByInvoiceId(con, invoiceId);
         con.close();
         return invoices;
     }
+
+    /**
+     * 
+     * @param con  a valid database connection
+     * @param invoiceId
+     * @return List of Invoices associated with the invoiceId
+     * @throws SQLException
+     */
     public List<Invoice> selectByInvoiceId(Connection con, Integer invoiceId) throws SQLException {
         List<Invoice> invoices = new ArrayList<Invoice>();
             final String preparedString = String.join("\n",
@@ -61,6 +76,11 @@ public class InvoiceDAO extends BaseDAO {
         return invoices;
     }
 
+    /**
+     * 
+     * @return the highest current invoice id
+     * @throws SQLException
+     */
     public Integer getMaxInvoiceNumber() throws SQLException {
         Integer maxInvoice = null;
         final Connection con = ds.getConnection();
@@ -75,6 +95,12 @@ public class InvoiceDAO extends BaseDAO {
         return maxInvoice;
 
     }
+    /**
+     * 
+     * @param customerId
+     * @return a collection of Invoices associated to the customer
+     * @throws SQLException
+     */
     public List<Invoice> selectInvoicesByCustomerId(Integer customerId) throws SQLException{
         List<Invoice> invoices = new ArrayList<Invoice>();
         Connection con = ds.getConnection();

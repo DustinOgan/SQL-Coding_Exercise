@@ -92,7 +92,6 @@ public class UtilMethodTests {
                 } catch (final SQLException e) {
                     e.printStackTrace();
                 }
-                System.out.println(product.getId());
             });
 
             // Sum of the Current Product List For Invoice

@@ -9,6 +9,14 @@ import java.sql.SQLException;
 import com.rr19.example.tests.dataTypes.Product;
 
 public class ProductDAO extends BaseDAO {
+
+    /**
+     * 
+     * @param productName
+     * @param price
+     * @return the product id which matches the provided name and price
+     * @throws SQLException
+     */
     public Integer getProductIdByProductNameAndPrice(String productName, BigDecimal price ) throws SQLException{
         final Product product = new Product();
         final Connection con = ds.getConnection();
@@ -27,4 +35,9 @@ public class ProductDAO extends BaseDAO {
         con.close();
         return product.getId();
     }
+    public ProductDAO() {
+
+        super();
+    }
+
 }

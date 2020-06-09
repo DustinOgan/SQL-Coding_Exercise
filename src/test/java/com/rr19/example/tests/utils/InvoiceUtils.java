@@ -11,6 +11,14 @@ import com.rr19.example.tests.dataTypes.Invoice;
 import com.rr19.example.tests.dataTypes.Item;
 
 public class InvoiceUtils {
+
+    /**
+     * 
+     * @param con
+     * @param invoice
+     * @param items
+     * @throws SQLException
+     */
     public static void insertCustomerInvoiceWithLineItems(Connection con,
         Invoice invoice, List<Item> items) throws SQLException {
         InvoiceDAO invoiceDAO = new InvoiceDAO();

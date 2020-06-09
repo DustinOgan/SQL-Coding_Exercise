@@ -9,7 +9,13 @@ import com.rr19.example.tests.dataTypes.Customer;
 
 public class CustomerDAO extends BaseDAO {;
 
-
+    /**
+     * 
+     * @param firstName
+     * @param lastName
+     * @return a unique customer Id
+     * @throws SQLException
+     */
     public Integer getCustomerIdByName(final String firstName, final String lastName) throws SQLException {
         final Customer customer = new Customer();
         final Connection con = ds.getConnection();
