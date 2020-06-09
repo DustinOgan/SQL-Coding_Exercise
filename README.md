@@ -60,4 +60,23 @@
 
 #### Test Cases:
 
-1.
+`Found in invoicePriceCalculatorTest.java`
+`1. Test 10% of current customerId invoices with existing records`
+`2. Test sum with additional invoice record`
+`3. Test sum on user with no invoices`
+
+
+#### Notes
+`Exercise 1 is in UtilMethodTests.java line 150 and Tested on Line 47`
+`Exercise 2 is in InvoiceUtils.java line 13, , tests and data prep in UtilMethodTests.java line 74`
+`Exercise 3 part 2 can be found in invoicPriceCalculator test class`
+
+#### Concerns
+`1. Susanne Smith vs Susan Smith`
+`2. IDENTITY column is not set for the purposes of insert. This leaves us calculating MAX or sorting to determine the last inserted Id which can lead to RACE conditions when multiple users grab MAX for puproses of inserting.`
+
+#### Suggestions
+`1. Implemented connection pooling strategy and singleton datasource for TestClasses with need to query`
+`2. Implemented reusable DAO objects for Customer, Invoice, Item, Product table selection and inserts`
+`3. Implemented validation on DAO and Util methods`
+`4. I wasn't able to modify invoicePriceCalculator test, but i have done some examples where passing the connection parameter in allowed me to insert, test for the condition and exit within the same test leading to a transaction rollback.  I think this is more efficient than inserting and deleting a row per each test`
